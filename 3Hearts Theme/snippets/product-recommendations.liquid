@@ -1,0 +1,19 @@
+{% comment %}
+  Best-sellers in this product’s first collection
+{% endcomment %}
+
+{% assign pool = product.collections.first.products
+  | where: "id", product.id, false %}
+{% assign sorted = pool | sort: "total_sales" | reverse %}
+{% assign top4  = sorted | slice: 0, 4 %}
+
+{% if top4.size > 0 %}
+  <div class="product-recommendations page-width">
+    <h3 class="section-header">Popular in this collection</h3>
+    <div class="grid grid--4-col">
+      {% for other in top4 %}
+        {% render 'product-card', product: other %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
