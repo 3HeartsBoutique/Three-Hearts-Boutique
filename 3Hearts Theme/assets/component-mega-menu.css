@@ -85,3 +85,37 @@
 .mega-menu__list--condensed .mega-menu__link {
   font-weight: normal;
 }
+
+
+/* ————— OVERRIDES: Narrow & restyle each submenu panel ————— */
+
+.mega-menu__content {
+  /* stop full-width stretch */
+  left: auto !important;
+  right: auto !important;
+  width: max-content !important;
+  max-width: none !important;
+  margin: 0 auto;                       /* center under parent */
+  padding: 0.5rem 1rem !important;      /* breathing room */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.mega-menu__list {
+  /* stack all items vertically instead of grid */
+  display: block !important;
+  grid-template-columns: none !important;
+  gap: 0 !important;
+  padding: 0 !important;
+}
+
+.mega-menu__link {
+  /* style each link as a no-wrap block */
+  display: block !important;
+  white-space: nowrap !important;
+  padding: 0.5rem 1rem !important;
+}
+
+.mega-menu__link:hover {
+  /* hover background */
+  background-color: #f2f2f2 !important;
+}
